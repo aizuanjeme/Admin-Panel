@@ -1,77 +1,90 @@
+import {
+  ChatBubbleOutline,
+  DynamicFeed,
+  LineStyle,
+  MailOutline,
+  PermIdentity,
+  Report,
+  Storefront,
+  Timeline,
+  TrendingUp,
+  WorkOutline,
+} from "@material-ui/icons";
 import React from "react";
+import "./sidebar.css";
 
 const Sidebar = () => {
   return (
-    <div class="col-lg-4 col-md-5 col-12 align-self-center">
-      <div className="card mr-4">
-        <div className="card-body">
-          <form>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">
-                Name of Event
-              </label>
-              <input
-                className="input--style-5"
-                type="text"
-                name="name"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-              />
-            </div>
+    <div className="sidebar">
+      <div className="sidebarWrapper">
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Dashboard</h3>
+          <ul className="sidebarList">
+            <li className="sidebarListItem active">
+              <LineStyle className="sidebarIcon" />
+              Home
+            </li>
+            <li className="sidebarListItem">
+              <Timeline className="sidebarIcon" />
+              Analytics
+            </li>
+            <li className="sidebarListItem">
+              <TrendingUp className="sidebarIcon" />
+              Sales
+            </li>
+          </ul>
 
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">
-                Address
-              </label>
-              <input
-                className="input--style-5"
-                type="text"
-                name="address"
-                onChange={(e) => setAddress(e.target.value)}
-                value={address}
-              />
-            </div>
+          <h3 className="sidebarTitle">Quick Menu</h3>
+          <ul className="sidebarList">
+            <li className="sidebarListItem ">
+              <PermIdentity className="sidebarIcon" />
+              User
+            </li>
+            <li className="sidebarListItem">
+              <Storefront className="sidebarIcon" />
+              Product
+            </li>
+            <li className="sidebarListItem">
+              <TrendingUp className="sidebarIcon" />
+              Transaction
+            </li>
+            <li className="sidebarListItem">
+              <Report className="sidebarIcon" />
+              Report
+            </li>
+          </ul>
 
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">
-                Start Date
-              </label>
-              <input
-                type="date"
-                id="p_startDate"
-                className="form-control"
-                name="startDate"
-                placeholder="Poll startDate"
-                onChange={(e) => setStartDate(e.target.value)}
-                value={startDate}
-                // ref={register({ required: true })}
-              />
-            </div>
+          <h3 className="sidebarTitle">Notification</h3>
+          <ul className="sidebarList">
+            <li className="sidebarListItem">
+              <MailOutline className="sidebarIcon" />
+              Mail
+            </li>
+            <li className="sidebarListItem">
+              <DynamicFeed className="sidebarIcon" />
+              FeedBack
+            </li>
+            <li className="sidebarListItem">
+              <ChatBubbleOutline className="sidebarIcon" />
+              Messages
+            </li>
+          </ul>
 
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">
-                Start Time
-              </label>
-              <input
-                type="time"
-                id="p_startTime"
-                name="startTime"
-                className="form-control"
-                placeholder="Poll start time"
-                onChange={(e) => setStartTime(e.target.value)}
-                value={startTime}
-                // ref={register({ required: true })}
-              />
-            </div>
-
-            <button
-              className="btn btn--radius-2 btn--red"
-              type="submit"
-              onClick={addEvent}
-            >
-              Save
-            </button>
-          </form>
+          <h3 className="sidebarTitle">Staff</h3>
+          <ul className="sidebarList">
+            <li className="sidebarListItem">
+              <WorkOutline className="sidebarIcon" />
+              Manage
+            </li>
+            <li className="sidebarListItem">
+              <Timeline className="sidebarIcon" />
+              Analytics
+            </li>
+            <li className="sidebarListItem">
+              <Report className="sidebarIcon" />
+              Report
+            </li>
+          </ul>
         </div>
       </div>
     </div>

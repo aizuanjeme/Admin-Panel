@@ -1,77 +1,31 @@
 import React from "react";
+import "./Navbar.css";
+import { Language, NotificationsNone, Settings } from "@material-ui/icons";
 
 const Navbar = () => {
   return (
-    <div class="col-lg-4 col-md-5 col-12 align-self-center">
-      <div className="card mr-4">
-        <div className="card-body">
-          <form>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">
-                Name of Event
-              </label>
-              <input
-                className="input--style-5"
-                type="text"
-                name="name"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">
-                Address
-              </label>
-              <input
-                className="input--style-5"
-                type="text"
-                name="address"
-                onChange={(e) => setAddress(e.target.value)}
-                value={address}
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">
-                Start Date
-              </label>
-              <input
-                type="date"
-                id="p_startDate"
-                className="form-control"
-                name="startDate"
-                placeholder="Poll startDate"
-                onChange={(e) => setStartDate(e.target.value)}
-                value={startDate}
-                // ref={register({ required: true })}
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">
-                Start Time
-              </label>
-              <input
-                type="time"
-                id="p_startTime"
-                name="startTime"
-                className="form-control"
-                placeholder="Poll start time"
-                onChange={(e) => setStartTime(e.target.value)}
-                value={startTime}
-                // ref={register({ required: true })}
-              />
-            </div>
-
-            <button
-              className="btn btn--radius-2 btn--red"
-              type="submit"
-              onClick={addEvent}
-            >
-              Save
-            </button>
-          </form>
+    <div className="navbar">
+      <div className="navbarWrapper">
+        <div className="topLeft">
+          <span className="logo">Stephanie</span>
+        </div>
+        <div className="topRight">
+          <div className="navbarIconContainer">
+            <NotificationsNone />
+            <span className="topIconBadge">2</span>
+          </div>
+          <div className="navbarIconContainer">
+            <Language />
+            <span className="topIconBadge">2</span>
+          </div>
+          <div className="navbarIconContainer">
+            <Settings />
+          </div>
+          <img
+            src="https://media.wired.com/photos/598e35fb99d76447c4eb1f28/master/pass/phonepicutres-TA.jpg"
+            alt="personal pics"
+            className="topAvatar"
+          />
         </div>
       </div>
     </div>
