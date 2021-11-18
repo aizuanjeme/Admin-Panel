@@ -13,7 +13,7 @@ const Create = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState("");
-  const [active, setActive] = useState("yes");
+  const [active, setActive] = useState("");
 
   // form submit event
   const addStaff = (e) => {

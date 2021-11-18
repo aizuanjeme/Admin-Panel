@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getStafffromLS } from "../../LocalStorage";
 import { DataGrid } from "@material-ui/data-grid";
 import "./staff.css";
+import { DeleteOutline } from "@material-ui/icons";
 
 const List = () => {
   const [data, setData] = useState(getStafffromLS);
+
+  // delete staff from LS
+  const handleDelete = (id) => {
+    const filteredData = data.filter((element) => {
+      return element.id !== id;
+    });
+    setData(filteredData);
+  };
+
+  useEffect(() => {
+    const json = JSON.stringify(data);
+    localStorage.setItem("Staff", json);
+  }, [data]);
 
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
@@ -28,14 +42,19 @@ const List = () => {
       width: 150,
     },
     {
-      field: "status",
-      headerName: "Status",
+      field: "gender",
+      headerName: "Gender",
       width: 120,
     },
     {
-      field: "transaction",
-      headerName: "Transaction",
-      width: 160,
+      field: "address",
+      headerName: "Address",
+      width: 200,
+    },
+    {
+      field: "active",
+      headerName: "Active",
+      width: 120,
     },
     {
       field: "action",
@@ -43,16 +62,15 @@ const List = () => {
       width: 150,
       renderCell: (staffs) => {
         return (
-          //   <>
-          //     <Link to={"/user/" + staffs.row.id}>
-          //       <button className="userListEdit">Edit</button>
-          //     </Link>
-          //     <DeleteOutline
-          //       className="userListDelete"
-          //       onClick={() => handleDelete(staffs.row.id)}
-          //     />
-          //   </>
-          <h1>hi</h1>
+          <>
+            <Link to={"/staff/edit/" + staffs.row.id}>
+              <button className="userListEdit">Edit</button>
+            </Link>
+            <DeleteOutline
+              className="userListDelete"
+              onClick={() => handleDelete(staffs.row.id)}
+            />
+          </>
         );
       },
     },
