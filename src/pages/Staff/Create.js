@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import firebase from "firebase";
 import { getStafffromLS } from "../../LocalStorage";
 // import Sidebar from "../../component/Sidebar/Sidebar";
 // import Navbar from "../../component/Navbar/Navbar";
 import "./staff.css";
 
 const Create = () => {
-  const [staff, setStaff] = useState(getStafffromLS());
+  const [staff, setStaff] = useState();
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [username, setUsername] = useState("");
@@ -18,6 +19,7 @@ const Create = () => {
   // form submit event
   const addStaff = (e) => {
     e.preventDefault();
+    const itemsRef = firebase.database().ref("Staff");
     let newStaff = {
       id: Math.random(),
       name,
@@ -28,6 +30,7 @@ const Create = () => {
       username,
       active,
     };
+    itemsRef.push(newStaff);
     setStaff([...staff, newStaff]);
     setName("");
     setAddress("");
